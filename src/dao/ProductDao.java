@@ -76,13 +76,13 @@ public class ProductDao implements DaoInterface{
         return pstmt.execute();
     }
 
-   public List<Product> search(int id) throws SQLException {
+   public List<Product> search(String id) throws SQLException {
        
         List<Product> productList = new ArrayList<>();   
   
 //        String query = "SELECT * FROM products where product_name LIKE '%"+name+"%'";
         String query = "SELECT * FROM products "
-                + "WHERE id='" + id + "'";
+                + "WHERE id='" + id + "' or product_name LIKE'" + id +"%'" ;
 
         Connection conn = ConnectHelper.getConnection();
         PreparedStatement pstmt = conn.prepareStatement(query);

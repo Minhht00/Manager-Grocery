@@ -23,7 +23,7 @@ public class Home extends javax.swing.JFrame {
     DefaultTableModel tableModel;
     ProductDao productDao = new ProductDao();
     /**
-     * Creates new form Trang_chu
+     * Creates new form 
      */
     public Home() {
         initComponents();
@@ -48,7 +48,7 @@ public void showTbProduct() throws SQLException {
     }
  public void showSearchTbProduct() throws SQLException {
 
-        int id = Integer.parseInt(this.txtSearchProduct.getText());
+        String id = this.txtSearchProduct.getText();
         List<Product> productList = productDao.search(id);
      
         tableModel.setRowCount(0);
@@ -1626,7 +1626,7 @@ public void showTbProduct() throws SQLException {
                 Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
             }
         }else try {
-            if(productDao.search(Integer.parseInt(this.txtSearchProduct.getText())).isEmpty()){
+            if(productDao.search(this.txtSearchProduct.getText()).isEmpty()){
                 showTbProduct();
             }
             else{
