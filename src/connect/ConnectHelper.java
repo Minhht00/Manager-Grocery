@@ -12,16 +12,15 @@ import java.sql.DriverManager;
  * @author A
  */
 public class ConnectHelper {
-    static String url = "jdbc:mysql://localhost:3306/products";
+    static String url = "jdbc:mysql://localhost:3306/qlth";
     static String user = "root";
-    static String password = "";
-
-    public static Connection getConnection() {
+    static String password ="";
+    public static Connection getConnection(){
         Connection connection = null;
-        try {
-            connection = DriverManager.getConnection(url, user, password);
-        } catch (Exception ex) {
-            ex.printStackTrace();
+        try{
+        connection = DriverManager.getConnection(url,user,password);
+        }catch(Exception ex){
+        ex.printStackTrace();
         }
         return connection;
     }
