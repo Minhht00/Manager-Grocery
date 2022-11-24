@@ -12,36 +12,41 @@ public class Product {
      private int id;
     private String productName;
     private int price;
+    private int amount;
     private int catalogId;
     private String createAt;
 
     public Product() {
     }
 
-    public Product(int id, String productName,  int catalogId,int price, String createAt) {
+    public Product(int id, String productName,  int catalogId,int price, int amount,String createAt) {
         this.id = id;
         this.productName = productName;
         this.price = price;
+        this.amount = amount;
         this.catalogId = catalogId;
         this.createAt = createAt;
     }
 
-    public Product(int id, String productName, int price, int catalogId) {
+    public Product(int id, String productName, int price, int amount, int catalogId) {
         this.id = id;
         this.productName = productName;
         this.price = price;
+        this.amount = amount;
         this.catalogId = catalogId;
     }
 
-    public Product(String productName, int price) {
+    public Product(String productName, int price, int amount) {
         this.productName = productName;
         this.price = price;
+        this.amount = amount;
     }
 
-    public Product(int id, String productName, int price) {
+    public Product(int id, String productName,int price, int amount) {
         this.id = id;
         this.productName = productName;
         this.price = price;
+        this.amount = amount;
     }
     
 
@@ -69,6 +74,14 @@ public class Product {
 
     public void setPrice(int price) {
         this.price = price;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
     }
 
     public int getCatalogId() {

@@ -30,7 +30,7 @@ public class ProductDao implements DaoInterface{
         ResultSet rs = pstmt.executeQuery(query);
         while (rs.next()) {
             Product product = new Product(rs.getInt("id"), rs.getString("product_name"),
-                    rs.getInt("catalog_id"), rs.getInt("price")
+                    rs.getInt("catalog_id"), rs.getInt("price"), rs.getInt("amount")
                     ,rs.getString("create_at"));
             productList.add(product);
         }
@@ -40,12 +40,13 @@ public class ProductDao implements DaoInterface{
     public boolean insert(Object ob) throws SQLException {
         Product product = new Product();
         product = (Product) ob;
-        String query = "insert into products(product_name,price,catalog_id) values(?,?,?)";
+        String query = "insert into products(product_name,price,amount,catalog_id) values(?,?,?,?)";
         Connection connection = ConnectHelper.getConnection();
         PreparedStatement pstmt = connection.prepareStatement(query);
         pstmt.setString(1, product.getProductName());
         pstmt.setInt(2, product.getPrice());
-        pstmt.setInt(3, product.getCatalogId());
+        pstmt.setInt(3, product.getAmount());
+        pstmt.setInt(4, product.getCatalogId());
         return pstmt.execute();
     }
 
@@ -55,12 +56,13 @@ public class ProductDao implements DaoInterface{
         product = (Product) ob;
 //        String query = "UPDATE products SET name=?,catalog_id=?, price=? "
 //                + "WHERE id='" + fd.getId() + "'";
- String query = "UPDATE products SET product_name=?, price=? "
+ String query = "UPDATE products SET product_name=?, price=?, amount=? "
                 + "WHERE id='" + product.getId() + "'";
         Connection conn = ConnectHelper.getConnection();
         PreparedStatement pstmt = conn.prepareStatement(query);
         pstmt.setString(1, product.getProductName());
         pstmt.setInt(2, product.getPrice());
+        pstmt.setInt(3, product.getAmount());
        
         return pstmt.execute();
     }
@@ -92,7 +94,7 @@ public class ProductDao implements DaoInterface{
 //                    rs.getInt("catalog_id"), rs.getInt("price")
 //                    , rs.getInt("status"));
              Product product = new Product(rs.getInt("id"), rs.getString("product_name"),
-                    rs.getInt("catalog_id"), rs.getInt("price")
+                    rs.getInt("catalog_id"), rs.getInt("price"), rs.getInt("amount")
                     ,rs.getString("create_at"));
             productList.add(product);
         }
@@ -114,7 +116,7 @@ public class ProductDao implements DaoInterface{
 //                    rs.getInt("catalog_id"), rs.getInt("price")
 //                    , rs.getInt("status"));
              Product product = new Product(rs.getInt("id"), rs.getString("product_name"),
-                    rs.getInt("catalog_id"), rs.getInt("price")
+                    rs.getInt("catalog_id"), rs.getInt("price"), rs.getInt("amount")
                     ,rs.getString("create_at"));
             productList.add(product);
         }
