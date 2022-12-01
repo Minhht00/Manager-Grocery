@@ -12,6 +12,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import model.Export;
+import model.ExportDetail;
 
 /**
  *
@@ -30,7 +31,7 @@ public class ExportDao implements DaoInterface {
         PreparedStatement pstmt = conn.prepareStatement(query);
         ResultSet rs = pstmt.executeQuery(query);
         while (rs.next()) {
-            Export export = new Export(rs.getInt("id"), rs.getInt("export_price"),
+            Export export = new Export(rs.getInt("id"), rs.getInt("price_export"),
                     rs.getString("create_at"));
             exportList.add(export);
         }
@@ -73,5 +74,28 @@ public class ExportDao implements DaoInterface {
         Connection conn = ConnectHelper.getConnection();
         PreparedStatement pstmt = conn.prepareStatement(query);
         return pstmt.execute();
+    }
+    
+    public List<ExportDetail> getById(int id) throws SQLException {
+       
+        List<ExportDetail> exportDtList = new ArrayList<>();   
+  
+//        String query = "SELECT * FROM products where product_name LIKE '%"+name+"%'";
+        String query = "SELECT * FROM export_detail "
+                + "WHERE export_id='" + id + "'" ;
+
+        Connection conn = ConnectHelper.getConnection();
+        PreparedStatement pstmt = conn.prepareStatement(query);
+        ResultSet rs = pstmt.executeQuery(query);
+        while (rs.next()) {
+//            Product product = new Product(rs.getInt("id"), rs.getString("product_name"),
+//                    rs.getInt("catalog_id"), rs.getInt("price")
+//                    , rs.getInt("status"));
+             ExportDetail exportDt = new ExportDetail(rs.getInt("id"), rs.getInt("export_id"),
+                    rs.getInt("product_id"), rs.getInt("quantity"),rs.getString("create_at"));
+            exportDtList.add(exportDt);
+        }
+        return exportDtList;
+
     }
 }

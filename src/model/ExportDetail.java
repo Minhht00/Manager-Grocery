@@ -25,6 +25,12 @@ public class ExportDetail {
         this.quantity = quantity;
         this.create_at = create_at;
     }
+    
+    public ExportDetail(int exportId, int productId, int quantity) {
+        this.exportId = exportId;
+        this.productId = productId;
+        this.quantity = quantity;
+    }
 
     public int getId() {
         return id;
