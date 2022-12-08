@@ -80,7 +80,7 @@ public class Home extends javax.swing.JFrame {
             List<Category> ob = (List<Category>) (Object) cateList;
 
             ob.forEach((Object) -> {
-                this.jCatalog.addItem(Object.getCategoryName());
+                this.jCatalog.addItem(Object.getId() + "." + Object.getCategoryName());
             });
 
         } catch (SQLException ex) {
@@ -2179,8 +2179,8 @@ public class Home extends javax.swing.JFrame {
             int price = Integer.parseInt(txtPrice.getText());
             int id = Integer.parseInt(lbId.getText());
             int amount = Integer.parseInt(txtAmount.getText());
-
-            Product product = new Product(id, txtProductName.getText(), price, amount);
+            int catalog = Integer.parseInt(stripNonDigits(this.jCatalog.getItemAt(jCatalog.getSelectedIndex()), 0, 10));
+            Product product = new Product(id, txtProductName.getText(), catalog, price, amount);
 
             try {
                 productDao.update(product);
@@ -2215,8 +2215,8 @@ public class Home extends javax.swing.JFrame {
             String productName = txtProductName.getText();
             int price = Integer.parseInt(txtPrice.getText());
             int amount = Integer.parseInt(txtAmount.getText());
-
-            Product product = new Product(productName, price, amount);
+            int catalog = Integer.parseInt(stripNonDigits(this.jCatalog.getItemAt(jCatalog.getSelectedIndex()), 0, 10));
+            Product product = new Product(productName, catalog, price, amount);
 
             try {
                 productDao.insert(product);
@@ -2236,13 +2236,17 @@ public class Home extends javax.swing.JFrame {
 
     private void tbProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProductMouseClicked
         // TODO add your handling code here:
+        
         int index = tbProduct.getSelectedRow();
         String id = tableModel.getValueAt(index, 0).toString();
         String productName = tableModel.getValueAt(index, 1).toString();
         //        String catalogId = tableModel.getValueAt(index, 2).toString();
         String price = tableModel.getValueAt(index, 3).toString();
         String amount = tableModel.getValueAt(index, 4).toString();
+        String catalogId = tableModel.getValueAt(index, 2).toString();
         //        String status = tableModel.getValueAt(index, 4).toString();
+       
+        
         this.lbId.setText(id);
         this.txtProductName.setText(productName);
         this.txtPrice.setText(price);
@@ -2441,6 +2445,21 @@ public class Home extends javax.swing.JFrame {
         });
     }
 
+    public static String stripNonDigits(final CharSequence input, int begin, int end) {
+        final StringBuilder sb = new StringBuilder(input.length());
+        if (end == 10) {
+            end = input.length();
+        }
+
+        for (int i = begin; i < end; i++) {
+            final char c = input.charAt(i);
+            if (c > 47 && c < 58) {
+                sb.append(c);
+
+            }
+        }
+        return sb.toString();
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnAddP;

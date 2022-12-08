@@ -9,17 +9,20 @@ package model;
  * @author A
  */
 public class Product {
-     private int id;
+
+    private int id;
     private String productName;
     private int price;
     private int amount;
     private int catalogId;
     private String createAt;
+//    private String categoryName;
+
 
     public Product() {
     }
 
-    public Product(int id, String productName,  int catalogId,int price, int amount,String createAt) {
+    public Product(int id, String productName, int catalogId, int price, int amount, String createAt) {
         this.id = id;
         this.productName = productName;
         this.price = price;
@@ -27,8 +30,15 @@ public class Product {
         this.catalogId = catalogId;
         this.createAt = createAt;
     }
-
-    public Product(int id, String productName, int price, int amount, int catalogId) {
+// public Product(int id, String productName,String categoryName , int price, int amount, String createAt) {
+//        this.id = id;
+//        this.productName = productName;
+//        this.price = price;
+//        this.amount = amount;
+//        this.categoryName = categoryName;
+//        this.createAt = createAt;
+//    }
+    public Product(int id, String productName, int catalogId, int price, int amount ) {
         this.id = id;
         this.productName = productName;
         this.price = price;
@@ -41,19 +51,28 @@ public class Product {
         this.price = price;
         this.amount = amount;
     }
+     
 
-    public Product(int id, String productName,int price, int amount) {
+
+    public Product(String productName, int catalogId, int price, int amount) {
+        this.productName = productName;
+        this.price = price;
+        this.amount = amount;
+        this.catalogId = catalogId;
+    }
+
+    public Product(int id, String productName, int price, int amount) {
         this.id = id;
         this.productName = productName;
         this.price = price;
         this.amount = amount;
     }
-    
+
     public Product(int id, int price) {
         this.id = id;
         this.price = price;
     }
-    
+
     public Product(int price) {
         this.price = price;
     }
@@ -73,8 +92,6 @@ public class Product {
     public void setProductName(String productName) {
         this.productName = productName;
     }
-
-   
 
     public int getPrice() {
         return price;
@@ -107,7 +124,5 @@ public class Product {
     public void setCreateAt(String createAt) {
         this.createAt = createAt;
     }
-    
-    
-    
+
 }

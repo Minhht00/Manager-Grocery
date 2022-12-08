@@ -25,7 +25,8 @@ public class ProductDao implements DaoInterface {
 
 //        String query = "SELECT * FROM products where status !=0";
         String query = "SELECT * FROM products";
-
+//        String query = "SELECT p.id, p.product_name,p.price,p.amount,"
+//                + "c.category_name,p.create_at FROM products p,categories c WHERE p.catalog_id = c.id";
         Connection conn = ConnectHelper.getConnection();
         PreparedStatement pstmt = conn.prepareStatement(query);
         ResultSet rs = pstmt.executeQuery(query);
@@ -37,7 +38,7 @@ public class ProductDao implements DaoInterface {
         }
         return productList;
     }
-
+//rs.getString("category_name")
     @Override
     public boolean insert(Object ob) throws SQLException {
         Product product = new Product();
@@ -57,13 +58,14 @@ public class ProductDao implements DaoInterface {
         Product product = (Product) ob;
 //        String query = "UPDATE products SET name=?,catalog_id=?, price=? "
 //                + "WHERE id='" + fd.getId() + "'";
-        String query = "UPDATE products SET product_name=?, price=?, amount=? "
+        String query = "UPDATE products SET product_name=?, price=?, amount=?, catalog_id=? "
                 + "WHERE id='" + product.getId() + "'";
         Connection conn = ConnectHelper.getConnection();
         PreparedStatement pstmt = conn.prepareStatement(query);
         pstmt.setString(1, product.getProductName());
         pstmt.setInt(2, product.getPrice());
         pstmt.setInt(3, product.getAmount());
+         pstmt.setInt(4, product.getCatalogId());
 
         return pstmt.execute();
     }
