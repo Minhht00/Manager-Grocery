@@ -12,12 +12,18 @@ public class Export {
     private int id;
     private int price_export;
     private String create_at;
+    private int staffId;
 
     public Export() {
     }
     
     public Export(int price_export) {
         this.price_export = price_export;
+    }
+
+    public Export(int price_export, int staffId) {
+        this.price_export = price_export;
+        this.staffId = staffId;
     }
 
     public Export(int id, int price_export, String create_at) {
@@ -48,6 +54,14 @@ public class Export {
 
     public void setCreate_at(String create_at) {
         this.create_at = create_at;
+    }
+
+    public int getStaffId() {
+        return staffId;
+    }
+
+    public void setStaffId(int staffId) {
+        this.staffId = staffId;
     }
     
     

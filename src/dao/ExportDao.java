@@ -42,10 +42,12 @@ public class ExportDao implements DaoInterface {
     public boolean insert(Object ob) throws SQLException {
         Export export = new Export();
         export = (Export) ob;
-        String query = "insert into export(price_export) values(?)";
+        String query = "insert into export(price_export, staff_id) values(?,?)";
         Connection connection = ConnectHelper.getConnection();
         PreparedStatement pstmt = connection.prepareStatement(query);
         pstmt.setInt(1, export.getPrice_export());
+        pstmt.setInt(2, export.getStaffId());
+
         return pstmt.execute();
     }
 
