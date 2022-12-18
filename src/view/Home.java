@@ -290,17 +290,6 @@ public class Home extends javax.swing.JFrame {
         jLabel37 = new javax.swing.JLabel();
         lbStaffId = new javax.swing.JLabel();
         dateStaff = new com.toedter.calendar.JDateChooser();
-        jPanel11 = new javax.swing.JPanel();
-        jPanel17 = new javax.swing.JPanel();
-        jLabel21 = new javax.swing.JLabel();
-        txtSearchProduct2 = new javax.swing.JTextField();
-        jButton3 = new javax.swing.JButton();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        tbExportDetail = new javax.swing.JTable();
-        jScrollPane10 = new javax.swing.JScrollPane();
-        tbExport = new javax.swing.JTable();
-        jLabel49 = new javax.swing.JLabel();
-        jLabel50 = new javax.swing.JLabel();
         jPanel23 = new javax.swing.JPanel();
         jPanel24 = new javax.swing.JPanel();
         jLabel56 = new javax.swing.JLabel();
@@ -372,6 +361,30 @@ public class Home extends javax.swing.JFrame {
         tbSearchProduct = new javax.swing.JTable();
         jLabel32 = new javax.swing.JLabel();
         jLabel33 = new javax.swing.JLabel();
+        jPanel11 = new javax.swing.JPanel();
+        jPanel17 = new javax.swing.JPanel();
+        jLabel21 = new javax.swing.JLabel();
+        txtSearchProduct2 = new javax.swing.JTextField();
+        jButton3 = new javax.swing.JButton();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        tbExportDetail = new javax.swing.JTable();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        tbExport = new javax.swing.JTable();
+        jLabel49 = new javax.swing.JLabel();
+        jLabel50 = new javax.swing.JLabel();
+        jPanel18 = new javax.swing.JPanel();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        tbExportDetail1 = new javax.swing.JTable();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        tbExport1 = new javax.swing.JTable();
+        jLabel51 = new javax.swing.JLabel();
+        jLabel52 = new javax.swing.JLabel();
+        dateStaff1 = new com.toedter.calendar.JDateChooser();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        dateStaff2 = new com.toedter.calendar.JDateChooser();
+        jButton4 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -884,7 +897,7 @@ public class Home extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 773, Short.MAX_VALUE)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 774, Short.MAX_VALUE)
                     .addComponent(jScrollPane5)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -893,24 +906,23 @@ public class Home extends javax.swing.JFrame {
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5))
+                .addGap(17, 17, 17))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addContainerGap(43, Short.MAX_VALUE)
+                .addContainerGap(80, Short.MAX_VALUE)
                 .addComponent(jLabel27)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(50, 50, 50)
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 211, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(50, 50, 50)
+                        .addComponent(jLabel1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane6, javax.swing.GroupLayout.PREFERRED_SIZE, 207, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(390, 390, 390))
-            .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(23, 23, 23)
-                .addComponent(jPanel10, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("Phiếu nhập hàng", jPanel3);
@@ -1082,126 +1094,6 @@ public class Home extends javax.swing.JFrame {
         );
 
         jTabbedPane1.addTab("Nhân viên", jPanel15);
-
-        jLabel21.setText("Tìm kiếm");
-
-        txtSearchProduct2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtSearchProduct2ActionPerformed(evt);
-            }
-        });
-
-        jButton3.setText("Tìm kiếm");
-        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton3MouseClicked(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
-        jPanel17.setLayout(jPanel17Layout);
-        jPanel17Layout.setHorizontalGroup(
-            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel17Layout.createSequentialGroup()
-                .addGap(9, 9, 9)
-                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtSearchProduct2, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton3)
-                .addContainerGap(314, Short.MAX_VALUE))
-        );
-        jPanel17Layout.setVerticalGroup(
-            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel17Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel21)
-                    .addComponent(txtSearchProduct2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3))
-                .addContainerGap())
-        );
-
-        tbExportDetail.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Mã chi tiết đơn", "Mã đơn", "Mã sản phẩm", "Số lượng", "Thời gian"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        jScrollPane9.setViewportView(tbExportDetail);
-
-        tbExport.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Mã hóa đơn", "Thành tiền", "Thời gian"
-            }
-        ) {
-            boolean[] canEdit = new boolean [] {
-                false, false, false
-            };
-
-            public boolean isCellEditable(int rowIndex, int columnIndex) {
-                return canEdit [columnIndex];
-            }
-        });
-        tbExport.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbExportMouseClicked(evt);
-            }
-        });
-        jScrollPane10.setViewportView(tbExport);
-
-        jLabel49.setForeground(new java.awt.Color(255, 51, 51));
-        jLabel49.setText("Bảng chi tiết hóa đơn ");
-
-        jLabel50.setForeground(new java.awt.Color(255, 0, 51));
-        jLabel50.setText("Bảng hóa đơn ");
-
-        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
-        jPanel11.setLayout(jPanel11Layout);
-        jPanel11Layout.setHorizontalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(546, 546, 546))
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
-                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 1076, Short.MAX_VALUE)
-                    .addComponent(jLabel49)
-                    .addComponent(jLabel50)
-                    .addComponent(jScrollPane9))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel11Layout.setVerticalGroup(
-            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel11Layout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel50)
-                .addGap(11, 11, 11)
-                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel49)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(260, 260, 260))
-        );
-
-        jTabbedPane1.addTab("Hóa đơn", jPanel11);
 
         jLabel56.setText("Tìm kiếm");
 
@@ -1826,6 +1718,270 @@ public class Home extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Thanh toán", jPanel4);
 
+        jLabel21.setText("Tìm kiếm");
+
+        txtSearchProduct2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtSearchProduct2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Tìm kiếm");
+        jButton3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton3MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
+        jPanel17.setLayout(jPanel17Layout);
+        jPanel17Layout.setHorizontalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel17Layout.createSequentialGroup()
+                .addGap(9, 9, 9)
+                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(txtSearchProduct2, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton3)
+                .addContainerGap(314, Short.MAX_VALUE))
+        );
+        jPanel17Layout.setVerticalGroup(
+            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel17Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21)
+                    .addComponent(txtSearchProduct2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton3))
+                .addContainerGap())
+        );
+
+        tbExportDetail.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Mã chi tiết đơn", "Mã đơn", "Mã sản phẩm", "Số lượng", "Thời gian"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane9.setViewportView(tbExportDetail);
+        if (tbExportDetail.getColumnModel().getColumnCount() > 0) {
+            tbExportDetail.getColumnModel().getColumn(0).setHeaderValue("Mã chi tiết đơn");
+            tbExportDetail.getColumnModel().getColumn(1).setHeaderValue("Mã đơn");
+            tbExportDetail.getColumnModel().getColumn(4).setHeaderValue("Thời gian");
+        }
+
+        tbExport.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Mã hóa đơn", "Thành tiền", "Thời gian"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tbExport.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbExportMouseClicked(evt);
+            }
+        });
+        jScrollPane10.setViewportView(tbExport);
+        if (tbExport.getColumnModel().getColumnCount() > 0) {
+            tbExport.getColumnModel().getColumn(2).setHeaderValue("Thời gian");
+        }
+
+        jLabel49.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel49.setText("Bảng chi tiết hóa đơn ");
+
+        jLabel50.setForeground(new java.awt.Color(255, 0, 51));
+        jLabel50.setText("Bảng hóa đơn ");
+
+        javax.swing.GroupLayout jPanel11Layout = new javax.swing.GroupLayout(jPanel11);
+        jPanel11.setLayout(jPanel11Layout);
+        jPanel11Layout.setHorizontalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addComponent(jPanel17, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(546, 546, 546))
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 1076, Short.MAX_VALUE)
+                    .addComponent(jLabel49)
+                    .addComponent(jLabel50)
+                    .addComponent(jScrollPane9))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanel11Layout.setVerticalGroup(
+            jPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel11Layout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel50)
+                .addGap(11, 11, 11)
+                .addComponent(jScrollPane10, javax.swing.GroupLayout.DEFAULT_SIZE, 355, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel49)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane9, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(260, 260, 260))
+        );
+
+        jTabbedPane1.addTab("Quản lý hóa đơn", jPanel11);
+
+        tbExportDetail1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Mã sản phẩm", "Tên sản phẩm", "Số lượng"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jScrollPane11.setViewportView(tbExportDetail1);
+
+        tbExport1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Ngày", "Doanh Thu"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tbExport1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbExport1MouseClicked(evt);
+            }
+        });
+        jScrollPane12.setViewportView(tbExport1);
+
+        jLabel51.setForeground(new java.awt.Color(255, 51, 51));
+        jLabel51.setText("Sản phẩm bán chạy");
+
+        jLabel52.setForeground(new java.awt.Color(255, 0, 51));
+        jLabel52.setText("Bảng thống kê");
+
+        dateStaff1.setDateFormatString("dd-MM-yyyy");
+
+        jLabel11.setText("Từ ngày");
+
+        jLabel12.setText("Đến ngày");
+
+        dateStaff2.setDateFormatString("dd-MM-yyyy");
+
+        jButton4.setText("Tra cứu");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton8.setText("Làm mới");
+        jButton8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton8ActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel18Layout = new javax.swing.GroupLayout(jPanel18);
+        jPanel18.setLayout(jPanel18Layout);
+        jPanel18Layout.setHorizontalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel18Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel11)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(dateStaff1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jLabel12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(dateStaff2, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(32, 32, 32)
+                .addComponent(jButton4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton8)
+                .addGap(534, 534, 534))
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addComponent(jScrollPane11)
+                        .addContainerGap())
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jScrollPane12)
+                            .addComponent(jLabel51)
+                            .addGroup(jPanel18Layout.createSequentialGroup()
+                                .addGap(508, 508, 508)
+                                .addComponent(jLabel52, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(491, 491, 491)))
+                        .addGap(149, 149, 149))))
+        );
+        jPanel18Layout.setVerticalGroup(
+            jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel18Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel52, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addGap(31, 31, 31)
+                        .addComponent(jLabel11))
+                    .addGroup(jPanel18Layout.createSequentialGroup()
+                        .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel18Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jButton4)
+                                    .addComponent(jButton8)))
+                            .addGroup(jPanel18Layout.createSequentialGroup()
+                                .addGap(31, 31, 31)
+                                .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(dateStaff1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel12)
+                                    .addComponent(dateStaff2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(jLabel51)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane11, javax.swing.GroupLayout.DEFAULT_SIZE, 216, Short.MAX_VALUE)
+                .addGap(367, 367, 367))
+        );
+
+        jTabbedPane1.addTab("Thống kê", jPanel18);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -1849,20 +2005,6 @@ public class Home extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void tbSearchProduct2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbSearchProduct2MouseClicked
-        // TODO add your handling code here:
-        int index = tbSearchProduct2.getSelectedRow();
-        String id = tablePIModel.getValueAt(index, 0).toString();
-        String productName = tablePIModel.getValueAt(index, 1).toString();
-        String amount = tablePIModel.getValueAt(index, 2).toString();
-        String price = tablePIModel.getValueAt(index, 3).toString();
-
-        this.txtPId2.setText(id);
-        this.txtPName2.setText(productName);
-        this.txtQuantity.setText(amount);
-        this.txtPPrice2.setText(price);
-    }//GEN-LAST:event_tbSearchProduct2MouseClicked
-
     private void tbSearchProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbSearchProductMouseClicked
         // TODO add your handling code here:
         int index = tbSearchProduct.getSelectedRow();
@@ -1875,7 +2017,6 @@ public class Home extends javax.swing.JFrame {
         this.txtPName.setText(productName);
         this.txtQuantityW.setText(amount);
         this.txtPPrice.setText(price);
-
     }//GEN-LAST:event_tbSearchProductMouseClicked
 
     private void btnPayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPayActionPerformed
@@ -1930,17 +2071,17 @@ public class Home extends javax.swing.JFrame {
         }
 
         //        for (int i = 0; i < tablePModel.getRowCount(); i++) {
-        //            int id = Integer.parseInt((String) tablePModel.getValueAt(i, 0));
-        //            String
-        //            Product product = new Product(id,productName, price, amount);
-        //
-        //        try {
-        //            productDao.insert(product);
-        ////
-        //        } catch (SQLException ex) {
-        //            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        //        }
-        //        }
+            //            int id = Integer.parseInt((String) tablePModel.getValueAt(i, 0));
+            //            String
+            //            Product product = new Product(id,productName, price, amount);
+            //
+            //        try {
+                //            productDao.insert(product);
+                ////
+                //        } catch (SQLException ex) {
+                //            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+                //        }
+            //        }
     }//GEN-LAST:event_btnPayMouseClicked
 
     private void txtPNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPNameActionPerformed
@@ -1968,34 +2109,38 @@ public class Home extends javax.swing.JFrame {
             Object[] row = {id, productName, quantityQ, amount, price, total};
             int index = tbSearchProduct.getSelectedRow();
             //            if (tablePModel.getRowCount() != 0) {
-            //                for (int i = 0; i < tablePModel.getRowCount(); i++) {
-            //                    if (txtPId.getText() != tablePModel.getValueAt(i, 0)) {
+                //                for (int i = 0; i < tablePModel.getRowCount(); i++) {
+                    //                    if (txtPId.getText() != tablePModel.getValueAt(i, 0)) {
 
-            if ((((int) tableSearchModel.getValueAt(index, 2)) - amount) >= 0) {
-                tablePModel.addRow(row);
-                int getTotal = 0;
-                for (int i1 = 0; i1 < tablePModel.getRowCount(); i1++) {
-                    getTotal += (int) tablePModel.getValueAt(i1, 5);
+                        if ((((int) tableSearchModel.getValueAt(index, 2)) - amount) >= 0) {
+                            tablePModel.addRow(row);
+                            int getTotal = 0;
+                            for (int i1 = 0; i1 < tablePModel.getRowCount(); i1++) {
+                                getTotal += (int) tablePModel.getValueAt(i1, 5);
+                            }
+                            txtTotal.setText(String.valueOf(getTotal));
+                        } else {
+                            JOptionPane.showMessageDialog(rootPane, "So luong khong du!");
+                        }
+                        //                    } else {
+                        //                        JOptionPane.showMessageDialog(rootPane, "san pham da ton tai!");
+                        //                    }
                 }
-                txtTotal.setText(String.valueOf(getTotal));
-            } else {
-                JOptionPane.showMessageDialog(rootPane, "So luong khong du!");
-            }
-            //                    } else {
-            //                        JOptionPane.showMessageDialog(rootPane, "san pham da ton tai!");
-            //                    }
-        }
-        //            } else {
-        //                if ((((int) tableSearchModel.getValueAt(index, 2)) - amount) >= 0) {
-        //                    tablePModel.addRow(row);
-        //                    int getTotal = 0;
-        //                    for (int i1 = 0; i1 < tablePModel.getRowCount(); i1++) {
-        //                        getTotal += (int) tablePModel.getValueAt(i1, 4);
-        //                    }
-        //                    txtTotal.setText(String.valueOf(getTotal));
-        //                }
-        //            }}
+                //            } else {
+                //                if ((((int) tableSearchModel.getValueAt(index, 2)) - amount) >= 0) {
+                    //                    tablePModel.addRow(row);
+                    //                    int getTotal = 0;
+                    //                    for (int i1 = 0; i1 < tablePModel.getRowCount(); i1++) {
+                        //                        getTotal += (int) tablePModel.getValueAt(i1, 4);
+                        //                    }
+                    //                    txtTotal.setText(String.valueOf(getTotal));
+                    //                }
+                //            }}
     }//GEN-LAST:event_btnAddPMouseClicked
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         // TODO add your handling code here:
@@ -2024,6 +2169,76 @@ public class Home extends javax.swing.JFrame {
     private void txtSearchProduct1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtSearchProduct1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtSearchProduct1ActionPerformed
+
+    private void tbSearchProduct2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbSearchProduct2MouseClicked
+        // TODO add your handling code here:
+        int index = tbSearchProduct2.getSelectedRow();
+        String id = tablePIModel.getValueAt(index, 0).toString();
+        String productName = tablePIModel.getValueAt(index, 1).toString();
+        String amount = tablePIModel.getValueAt(index, 2).toString();
+        String price = tablePIModel.getValueAt(index, 3).toString();
+
+        this.txtPId2.setText(id);
+        this.txtPName2.setText(productName);
+        this.txtQuantity.setText(amount);
+        this.txtPPrice2.setText(price);
+    }//GEN-LAST:event_tbSearchProduct2MouseClicked
+
+    private void btnPay2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPay2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPay2ActionPerformed
+
+    private void btnPay2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPay2MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPay2MouseClicked
+
+    private void txtPName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPName2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPName2ActionPerformed
+
+    private void btnAddP2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddP2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAddP2ActionPerformed
+
+    private void btnAddP2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddP2MouseClicked
+        // TODO add your handling code here:
+        if (txtPName2.getText().equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "Chua nhap ten");
+        } else if (txtPPrice2.getText().equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "Chua nhap giá");
+        } else {
+            int id = Integer.parseInt(txtPId2.getText());
+            String productName = txtPName2.getText();
+            int amount = Integer.parseInt(txtPAmount2.getText());
+            int quantityQ = Integer.parseInt(txtQuantity.getText());
+            int price = Integer.parseInt(txtPPrice2.getText());
+            int total = amount * price;
+            Object[] row = {id, productName, quantityQ, amount, price, total};
+
+            tablePI2Model.addRow(row);
+
+        }
+    }//GEN-LAST:event_btnAddP2MouseClicked
+
+    private void searchPInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPInActionPerformed
+        // TODO add your handling code here:
+        if (txtSearchProduct4.getText().isEmpty() || txtSearchProduct4.getText().equals("")) {
+
+            try {
+                showTbProductIn();
+            } catch (SQLException ex) {
+                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        } else {
+            try {
+                // TODO add your handling code here:
+                showTbSearchProductIn();
+            } catch (SQLException ex) {
+                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_searchPInActionPerformed
 
     private void tbExportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbExportMouseClicked
         // TODO add your handling code here:
@@ -2067,6 +2282,24 @@ public class Home extends javax.swing.JFrame {
         this.txtPhone.setText("");
     }//GEN-LAST:event_jButton19ActionPerformed
 
+    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        String date = sdf.format(dateStaff.getDate());
+        Staff staff = new Staff(Integer.parseInt(lbStaffId.getText()), txtStaffName.getText(), date, txtAddressStaff.getText(), txtPhone.getText());
+
+        try {
+            staffDao.update(staff);
+        } catch (SQLException ex) {
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        try {
+            showTbStaff();
+        } catch (SQLException ex) {
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        }        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton18ActionPerformed
+
     private void jButton17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton17ActionPerformed
         // TODO add your handling code here:
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
@@ -2085,8 +2318,27 @@ public class Home extends javax.swing.JFrame {
             Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
         }
 
-
     }//GEN-LAST:event_jButton17ActionPerformed
+
+    private void tbStaffMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbStaffMouseClicked
+
+        // TODO add your handling code here:
+        int index = tbStaff.getSelectedRow();
+        String id = tableModelStaff.getValueAt(index, 0).toString();
+        String staffName = tableModelStaff.getValueAt(index, 1).toString();
+        try {
+            Date date = new SimpleDateFormat("dd-MM-yyyy").parse((String) tableModelStaff.getValueAt(index, 2));
+            this.dateStaff.setDate(date);
+        } catch (ParseException ex) {
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String address = tableModelStaff.getValueAt(index, 3).toString();
+        String phone = tableModelStaff.getValueAt(index, 5).toString();
+        this.lbStaffId.setText(id);
+        this.txtStaffName.setText(staffName);
+        this.txtAddressStaff.setText(address);
+        this.txtPhone.setText(phone);
+    }//GEN-LAST:event_tbStaffMouseClicked
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
         // TODO add your handling code here:
@@ -2108,6 +2360,30 @@ public class Home extends javax.swing.JFrame {
         txtCategoryName.setText("");
         lbCategoryId.setText("");
     }//GEN-LAST:event_jButton7ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        if (txtCategoryName.getText().equals("")) {
+            JOptionPane.showMessageDialog(rootPane, "Chua nhap ten");
+        } else {
+
+            Category category = new Category(Integer.parseInt(lbCategoryId.getText()), txtCategoryName.getText());
+
+            try {
+                categoryDao.update(category);
+            } catch (SQLException ex) {
+                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            try {
+                showTbCategory();
+            } catch (SQLException ex) {
+                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            txtCategoryName.setText("");
+            lbCategoryId.setText("");
+        }
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
@@ -2132,6 +2408,16 @@ public class Home extends javax.swing.JFrame {
             txtCategoryName.setText("");
         }
     }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void tbCategoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbCategoryMouseClicked
+        // TODO add your handling code here:
+        int index = tbCategory.getSelectedRow();
+        String id = tableModelCate.getValueAt(index, 0).toString();
+        String categoryName = tableModelCate.getValueAt(index, 1).toString();
+
+        this.lbCategoryId.setText(id);
+        this.txtCategoryName.setText(categoryName);
+    }//GEN-LAST:event_tbCategoryMouseClicked
 
     private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
         try {
@@ -2173,7 +2459,6 @@ public class Home extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton20ActionPerformed
 
     private void jCatalogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCatalogActionPerformed
-
 
     }//GEN-LAST:event_jCatalogActionPerformed
 
@@ -2262,7 +2547,7 @@ public class Home extends javax.swing.JFrame {
 
     private void tbProductMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbProductMouseClicked
         // TODO add your handling code here:
-        
+
         int index = tbProduct.getSelectedRow();
         String id = tableModel.getValueAt(index, 0).toString();
         String productName = tableModel.getValueAt(index, 1).toString();
@@ -2271,8 +2556,7 @@ public class Home extends javax.swing.JFrame {
         String amount = tableModel.getValueAt(index, 4).toString();
         String catalogId = tableModel.getValueAt(index, 2).toString();
         //        String status = tableModel.getValueAt(index, 4).toString();
-       
-        
+
         this.lbId.setText(id);
         this.txtProductName.setText(productName);
         this.txtPrice.setText(price);
@@ -2287,140 +2571,17 @@ public class Home extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton11ActionPerformed
 
-    private void btnPay2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPay2ActionPerformed
+    private void tbExport1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbExport1MouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnPay2ActionPerformed
+    }//GEN-LAST:event_tbExport1MouseClicked
 
-    private void btnPay2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPay2MouseClicked
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_btnPay2MouseClicked
+    }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
-        if (txtCategoryName.getText().equals("")) {
-            JOptionPane.showMessageDialog(rootPane, "Chua nhap ten");
-        } else {
-
-            Category category = new Category(Integer.parseInt(lbCategoryId.getText()), txtCategoryName.getText());
-
-            try {
-                categoryDao.update(category);
-            } catch (SQLException ex) {
-                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-            try {
-                showTbCategory();
-            } catch (SQLException ex) {
-                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            txtCategoryName.setText("");
-            lbCategoryId.setText("");
-        }
-    }//GEN-LAST:event_jButton6ActionPerformed
-
-    private void tbCategoryMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbCategoryMouseClicked
-        // TODO add your handling code here:
-        int index = tbCategory.getSelectedRow();
-        String id = tableModelCate.getValueAt(index, 0).toString();
-        String categoryName = tableModelCate.getValueAt(index, 1).toString();
-
-        this.lbCategoryId.setText(id);
-        this.txtCategoryName.setText(categoryName);
-
-    }//GEN-LAST:event_tbCategoryMouseClicked
-
-    private void jButton18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton18ActionPerformed
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
-        String date = sdf.format(dateStaff.getDate());
-        Staff staff = new Staff(Integer.parseInt(lbStaffId.getText()), txtStaffName.getText(), date, txtAddressStaff.getText(), txtPhone.getText());
-
-        try {
-            staffDao.update(staff);
-        } catch (SQLException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        try {
-            showTbStaff();
-        } catch (SQLException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }        // TODO add your handling code here:
-
-    }//GEN-LAST:event_jButton18ActionPerformed
-
-    private void tbStaffMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbStaffMouseClicked
-
-        // TODO add your handling code here:
-        int index = tbStaff.getSelectedRow();
-        String id = tableModelStaff.getValueAt(index, 0).toString();
-        String staffName = tableModelStaff.getValueAt(index, 1).toString();
-        try {
-            Date date = new SimpleDateFormat("dd-MM-yyyy").parse((String) tableModelStaff.getValueAt(index, 2));
-            this.dateStaff.setDate(date);
-        } catch (ParseException ex) {
-            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        String address = tableModelStaff.getValueAt(index, 3).toString();
-        String phone = tableModelStaff.getValueAt(index, 5).toString();
-        this.lbStaffId.setText(id);
-        this.txtStaffName.setText(staffName);
-        this.txtAddressStaff.setText(address);
-        this.txtPhone.setText(phone);
-
-    }//GEN-LAST:event_tbStaffMouseClicked
-
-    private void txtPName2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPName2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtPName2ActionPerformed
-
-    private void btnAddP2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddP2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnAddP2ActionPerformed
-
-    private void btnAddP2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAddP2MouseClicked
-        // TODO add your handling code here:
-        if (txtPName2.getText().equals("")) {
-            JOptionPane.showMessageDialog(rootPane, "Chua nhap ten");
-        } else if (txtPPrice2.getText().equals("")) {
-            JOptionPane.showMessageDialog(rootPane, "Chua nhap giá");
-        } else {
-            int id = Integer.parseInt(txtPId2.getText());
-            String productName = txtPName2.getText();
-            int amount = Integer.parseInt(txtPAmount2.getText());
-            int quantityQ = Integer.parseInt(txtQuantity.getText());
-            int price = Integer.parseInt(txtPPrice2.getText());
-            int total = amount * price;
-            Object[] row = {id, productName, quantityQ, amount, price, total};
-
-            tablePI2Model.addRow(row);
-
-        }
-    }//GEN-LAST:event_btnAddP2MouseClicked
-
-    private void searchPInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_searchPInActionPerformed
-        // TODO add your handling code here:
-        if (txtSearchProduct4.getText().isEmpty() || txtSearchProduct4.getText().equals("")) {
-
-            try {
-                showTbProductIn();
-            } catch (SQLException ex) {
-                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-        } else {
-            try {
-                // TODO add your handling code here:
-                showTbSearchProductIn();
-            } catch (SQLException ex) {
-                Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-            }
-        }
-    }//GEN-LAST:event_searchPInActionPerformed
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButton8ActionPerformed
     public void showTbExportDT() throws SQLException {
         int index = tbExport.getSelectedRow();
         int id = Integer.parseInt(tableEModel.getValueAt(index, 0).toString());
@@ -2496,6 +2657,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton btnPay2;
     private javax.swing.JButton btnReset;
     private com.toedter.calendar.JDateChooser dateStaff;
+    private com.toedter.calendar.JDateChooser dateStaff1;
+    private com.toedter.calendar.JDateChooser dateStaff2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton11;
     private javax.swing.JButton jButton12;
@@ -2509,12 +2672,16 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton jButton25;
     private javax.swing.JButton jButton26;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JComboBox<String> jCatalog;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
@@ -2546,6 +2713,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel49;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel50;
+    private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel56;
     private javax.swing.JLabel jLabel57;
     private javax.swing.JLabel jLabel58;
@@ -2569,6 +2738,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel15;
     private javax.swing.JPanel jPanel16;
     private javax.swing.JPanel jPanel17;
+    private javax.swing.JPanel jPanel18;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel23;
     private javax.swing.JPanel jPanel24;
@@ -2580,6 +2750,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane10;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
     private javax.swing.JScrollPane jScrollPane13;
     private javax.swing.JScrollPane jScrollPane14;
     private javax.swing.JScrollPane jScrollPane2;
@@ -2616,7 +2788,9 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton searchPIn;
     private javax.swing.JTable tbCategory;
     private javax.swing.JTable tbExport;
+    private javax.swing.JTable tbExport1;
     private javax.swing.JTable tbExportDetail;
+    private javax.swing.JTable tbExportDetail1;
     private javax.swing.JTable tbProduct;
     private javax.swing.JTable tbSearchProduct;
     private javax.swing.JTable tbSearchProduct2;
