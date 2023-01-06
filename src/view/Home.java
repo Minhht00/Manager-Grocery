@@ -7,6 +7,8 @@ package view;
 import dao.CategoryDao;
 import dao.ExportDao;
 import dao.ExportDetailDao;
+import dao.ImportDao;
+import dao.ImportDetailDao;
 import dao.ProductDao;
 import dao.StaffDao;
 import java.sql.SQLException;
@@ -23,6 +25,8 @@ import model.Account;
 import model.Category;
 import model.Export;
 import model.ExportDetail;
+import model.Import;
+import model.ImportDetail;
 import model.Product;
 import model.Staff;
 
@@ -42,9 +46,13 @@ public class Home extends javax.swing.JFrame {
     DefaultTableModel tableEDModel;
     DefaultTableModel tableModelCate;
     DefaultTableModel tableModelStaff;
+    DefaultTableModel tableModelImport;
+    DefaultTableModel tableModelImportDetail;
 
     ProductDao productDao = new ProductDao();
     ExportDao exportDao = new ExportDao();
+    ImportDao importDao = new ImportDao();
+    ImportDetailDao importDtDao = new ImportDetailDao();
     ExportDetailDao exportDtDao = new ExportDetailDao();
     CategoryDao categoryDao = new CategoryDao();
     StaffDao staffDao = new StaffDao();
@@ -53,7 +61,7 @@ public class Home extends javax.swing.JFrame {
      * Creates new form
      */
     public Home() {
-        
+
 //        Login login = new Login();
 //        login.setVisible(true);
 //        this.dispose();
@@ -67,6 +75,8 @@ public class Home extends javax.swing.JFrame {
         tableModelStaff = (DefaultTableModel) tbStaff.getModel();
         tablePIModel = (DefaultTableModel) tbSearchProduct2.getModel();
         tablePI2Model = (DefaultTableModel) tbShowP2.getModel();
+        tableModelImport = (DefaultTableModel) tbImport.getModel();
+        tableModelImportDetail = (DefaultTableModel) tbImportDt.getModel();
         Account account = Account.getInstance(0, "");
         lbStaffName.setText(account.staffName);
         try {
@@ -76,6 +86,7 @@ public class Home extends javax.swing.JFrame {
             showTbStaff();
             showCatalog();
             showTbProductIn();
+            showTbImport();
         } catch (SQLException ex) {
             Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -155,6 +166,19 @@ public class Home extends javax.swing.JFrame {
 
             tableEModel.addRow(new Object[]{Object.getId(), Object.getPrice_export(),
                 Object.getCreate_at()});
+        });
+    }
+
+    public void showTbImport() throws SQLException {
+
+        List<Object> ImportList = importDao.findAll();
+        List<Import> ob = (List<Import>) (Object) ImportList;
+
+        tableModelImport.setRowCount(0);
+        ob.forEach((Object) -> {
+
+            tableModelImport.addRow(new Object[]{Object.getId(), Object.getPriceImport(),
+                Object.getCreate_at(), Object.getStaffId()});
         });
     }
 
@@ -249,28 +273,22 @@ public class Home extends javax.swing.JFrame {
         lbCategoryId = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        jTable5 = new javax.swing.JTable();
+        tbImport = new javax.swing.JTable();
         jScrollPane6 = new javax.swing.JScrollPane();
-        jTable6 = new javax.swing.JTable();
+        tbImportDt = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel27 = new javax.swing.JLabel();
         jPanel10 = new javax.swing.JPanel();
-        jButton11 = new javax.swing.JButton();
         jLabel15 = new javax.swing.JLabel();
         jLabel16 = new javax.swing.JLabel();
         jLabel17 = new javax.swing.JLabel();
-        jTextField15 = new javax.swing.JTextField();
-        jTextField16 = new javax.swing.JTextField();
-        jTextField17 = new javax.swing.JTextField();
+        txtQtyIP = new javax.swing.JTextField();
         jSeparator8 = new javax.swing.JSeparator();
-        jButton12 = new javax.swing.JButton();
+        updateIP = new javax.swing.JButton();
         jButton13 = new javax.swing.JButton();
-        jLabel28 = new javax.swing.JLabel();
-        jTextField27 = new javax.swing.JTextField();
-        jLabel30 = new javax.swing.JLabel();
-        jTextField28 = new javax.swing.JTextField();
-        jLabel31 = new javax.swing.JLabel();
-        jTextField29 = new javax.swing.JTextField();
+        IPId = new javax.swing.JLabel();
+        expIP = new com.toedter.calendar.JDateChooser();
+        msgIP = new com.toedter.calendar.JDateChooser();
         jPanel15 = new javax.swing.JPanel();
         jScrollPane7 = new javax.swing.JScrollPane();
         tbStaff = new javax.swing.JTable();
@@ -742,41 +760,51 @@ public class Home extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Loại sản phẩm", jPanel6);
 
-        jTable5.setModel(new javax.swing.table.DefaultTableModel(
+        tbImport.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Mã số phiếu", "Ngày nhập", "Giá nhập"
+                "Mã số phiếu", "Giá nhập", "Ngày nhập", "Người tạo"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false
+                false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane5.setViewportView(jTable5);
+        tbImport.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbImportMouseClicked(evt);
+            }
+        });
+        jScrollPane5.setViewportView(tbImport);
 
-        jTable6.setModel(new javax.swing.table.DefaultTableModel(
+        tbImportDt.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "Mã số phiếu", "Sản phẩm", "Số lượng", "Giá nhập"
+                "Mã", "Mã số phiếu", "Sản phẩm", "Số lượng", "Số lượng yêu cầu", "Giá nhập", "NXS", "HSD", "Trạng thái"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, true
+                true, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane6.setViewportView(jTable6);
+        tbImportDt.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tbImportDtMouseClicked(evt);
+            }
+        });
+        jScrollPane6.setViewportView(tbImportDt);
 
         jLabel1.setForeground(new java.awt.Color(255, 51, 51));
         jLabel1.setText("Chi tiết phiếu nhập");
@@ -784,20 +812,23 @@ public class Home extends javax.swing.JFrame {
         jLabel27.setForeground(new java.awt.Color(255, 51, 51));
         jLabel27.setText("Phiếu nhập hàng");
 
-        jButton11.setText("Thêm");
-        jButton11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton11ActionPerformed(evt);
+        jLabel15.setText("Số lượng");
+
+        jLabel16.setText("NSX");
+
+        jLabel17.setText("HSD");
+
+        updateIP.setText("Cập nhật");
+        updateIP.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                updateIPMouseClicked(evt);
             }
         });
-
-        jLabel15.setText("Sản phẩm");
-
-        jLabel16.setText("Số lượng");
-
-        jLabel17.setText("Giá nhập");
-
-        jButton12.setText("Sửa");
+        updateIP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateIPActionPerformed(evt);
+            }
+        });
 
         jButton13.setText("Xóa");
         jButton13.addActionListener(new java.awt.event.ActionListener() {
@@ -806,11 +837,11 @@ public class Home extends javax.swing.JFrame {
             }
         });
 
-        jLabel28.setText("Mã số phiếu");
+        IPId.setText("Mã số phiếu");
 
-        jLabel30.setText("Ngày nhập");
+        expIP.setDateFormatString("dd-MM-yyyy");
 
-        jLabel31.setText("Giá nhập");
+        msgIP.setDateFormatString("dd-MM-yyyy");
 
         javax.swing.GroupLayout jPanel10Layout = new javax.swing.GroupLayout(jPanel10);
         jPanel10.setLayout(jPanel10Layout);
@@ -820,74 +851,54 @@ public class Home extends javax.swing.JFrame {
                 .addComponent(jSeparator8)
                 .addContainerGap())
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(57, 57, 57)
+                .addGap(67, 67, 67)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton11, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(IPId)
                     .addGroup(jPanel10Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
                         .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel17)
+                            .addComponent(jLabel15))
+                        .addGap(37, 37, 37)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel10Layout.createSequentialGroup()
+                                .addComponent(updateIP, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel28)
-                                    .addComponent(jLabel30))
-                                .addGap(26, 26, 26)
-                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(jPanel10Layout.createSequentialGroup()
-                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel17)
-                                    .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel31, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel15)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, 158, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel10Layout.createSequentialGroup()
-                                        .addComponent(jButton12, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(jButton13, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)))))))
-                .addContainerGap(119, Short.MAX_VALUE))
+                                    .addComponent(msgIP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(txtQtyIP, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
+                                    .addComponent(expIP, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addGap(35, 35, 35)))))
+                .addContainerGap(84, Short.MAX_VALUE))
         );
         jPanel10Layout.setVerticalGroup(
             jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel10Layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jTextField27, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel28))
+                .addGap(41, 41, 41)
+                .addComponent(IPId)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField28, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel30))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField29, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel31))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField15, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtQtyIP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel15))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jTextField16, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel16))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel17)
-                    .addComponent(jTextField17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(48, 48, 48)
-                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton11)
-                    .addComponent(jButton12)
-                    .addComponent(jButton13))
-                .addGap(18, 18, 18)
-                .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(34, Short.MAX_VALUE))
+                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel10Layout.createSequentialGroup()
+                        .addComponent(jLabel16)
+                        .addGap(12, 12, 12)
+                        .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel10Layout.createSequentialGroup()
+                                .addComponent(jLabel17)
+                                .addGap(51, 51, 51)
+                                .addGroup(jPanel10Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(updateIP)
+                                    .addComponent(jButton13))
+                                .addGap(18, 18, 18)
+                                .addComponent(jSeparator8, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(expIP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(msgIP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -897,7 +908,7 @@ public class Home extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 774, Short.MAX_VALUE)
+                    .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 781, Short.MAX_VALUE)
                     .addComponent(jScrollPane5)
                     .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -2029,7 +2040,7 @@ public class Home extends javax.swing.JFrame {
         int total = Integer.parseInt(txtTotal.getText());
         int moneyExtra = moneyGuest - total;
         Account account = Account.getInstance(0, "");
-        int staffId =  account.staffId;
+        int staffId = account.staffId;
         System.out.println(staffId);
         if (moneyExtra >= 0) {
             txtMoneyExtra.setText(String.valueOf(moneyExtra));
@@ -2071,17 +2082,17 @@ public class Home extends javax.swing.JFrame {
         }
 
         //        for (int i = 0; i < tablePModel.getRowCount(); i++) {
-            //            int id = Integer.parseInt((String) tablePModel.getValueAt(i, 0));
-            //            String
-            //            Product product = new Product(id,productName, price, amount);
-            //
-            //        try {
-                //            productDao.insert(product);
-                ////
-                //        } catch (SQLException ex) {
-                //            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
-                //        }
-            //        }
+        //            int id = Integer.parseInt((String) tablePModel.getValueAt(i, 0));
+        //            String
+        //            Product product = new Product(id,productName, price, amount);
+        //
+        //        try {
+        //            productDao.insert(product);
+        ////
+        //        } catch (SQLException ex) {
+        //            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        //        }
+        //        }
     }//GEN-LAST:event_btnPayMouseClicked
 
     private void txtPNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPNameActionPerformed
@@ -2109,33 +2120,33 @@ public class Home extends javax.swing.JFrame {
             Object[] row = {id, productName, quantityQ, amount, price, total};
             int index = tbSearchProduct.getSelectedRow();
             //            if (tablePModel.getRowCount() != 0) {
-                //                for (int i = 0; i < tablePModel.getRowCount(); i++) {
-                    //                    if (txtPId.getText() != tablePModel.getValueAt(i, 0)) {
+            //                for (int i = 0; i < tablePModel.getRowCount(); i++) {
+            //                    if (txtPId.getText() != tablePModel.getValueAt(i, 0)) {
 
-                        if ((((int) tableSearchModel.getValueAt(index, 2)) - amount) >= 0) {
-                            tablePModel.addRow(row);
-                            int getTotal = 0;
-                            for (int i1 = 0; i1 < tablePModel.getRowCount(); i1++) {
-                                getTotal += (int) tablePModel.getValueAt(i1, 5);
-                            }
-                            txtTotal.setText(String.valueOf(getTotal));
-                        } else {
-                            JOptionPane.showMessageDialog(rootPane, "So luong khong du!");
-                        }
-                        //                    } else {
-                        //                        JOptionPane.showMessageDialog(rootPane, "san pham da ton tai!");
-                        //                    }
+            if ((((int) tableSearchModel.getValueAt(index, 2)) - amount) >= 0) {
+                tablePModel.addRow(row);
+                int getTotal = 0;
+                for (int i1 = 0; i1 < tablePModel.getRowCount(); i1++) {
+                    getTotal += (int) tablePModel.getValueAt(i1, 5);
                 }
-                //            } else {
-                //                if ((((int) tableSearchModel.getValueAt(index, 2)) - amount) >= 0) {
-                    //                    tablePModel.addRow(row);
-                    //                    int getTotal = 0;
-                    //                    for (int i1 = 0; i1 < tablePModel.getRowCount(); i1++) {
-                        //                        getTotal += (int) tablePModel.getValueAt(i1, 4);
-                        //                    }
-                    //                    txtTotal.setText(String.valueOf(getTotal));
-                    //                }
-                //            }}
+                txtTotal.setText(String.valueOf(getTotal));
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "So luong khong du!");
+            }
+            //                    } else {
+            //                        JOptionPane.showMessageDialog(rootPane, "san pham da ton tai!");
+            //                    }
+        }
+        //            } else {
+        //                if ((((int) tableSearchModel.getValueAt(index, 2)) - amount) >= 0) {
+        //                    tablePModel.addRow(row);
+        //                    int getTotal = 0;
+        //                    for (int i1 = 0; i1 < tablePModel.getRowCount(); i1++) {
+        //                        getTotal += (int) tablePModel.getValueAt(i1, 4);
+        //                    }
+        //                    txtTotal.setText(String.valueOf(getTotal));
+        //                }
+        //            }}
     }//GEN-LAST:event_btnAddPMouseClicked
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -2563,14 +2574,6 @@ public class Home extends javax.swing.JFrame {
         this.txtAmount.setText(amount);
     }//GEN-LAST:event_tbProductMouseClicked
 
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton13ActionPerformed
-
-    private void jButton11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton11ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jButton11ActionPerformed
-
     private void tbExport1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbExport1MouseClicked
         // TODO add your handling code here:
     }//GEN-LAST:event_tbExport1MouseClicked
@@ -2582,6 +2585,65 @@ public class Home extends javax.swing.JFrame {
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton8ActionPerformed
+
+    private void tbImportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbImportMouseClicked
+        // TODO add your handling code here:
+        try {
+            showTbImportDT();
+        } catch (SQLException ex) {
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_tbImportMouseClicked
+
+    private void tbImportDtMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbImportDtMouseClicked
+        // TODO add your handling code here:
+        int index = tbImportDt.getSelectedRow();
+        String id = tableModelImportDetail.getValueAt(index, 0).toString();
+        this.IPId.setText(id);
+    }//GEN-LAST:event_tbImportDtMouseClicked
+
+    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton13ActionPerformed
+
+    private void updateIPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateIPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_updateIPActionPerformed
+
+    private void updateIPMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_updateIPMouseClicked
+        // TODO add your handling code here:
+        int id = Integer.parseInt(IPId.getText());
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+        String msg = sdf.format(msgIP.getDate());
+        String exp = sdf.format(expIP.getDate());
+        ImportDetail importDt = new ImportDetail(id,msg,exp,1);
+
+        try {
+            importDtDao.update(importDt);
+        } catch (SQLException ex) {
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        try {
+            showTbImportDT();
+        } catch (SQLException ex) {
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_updateIPMouseClicked
+    public void showTbImportDT() throws SQLException {
+        int index = tbImport.getSelectedRow();
+        int id = Integer.parseInt(tableModelImport.getValueAt(index, 0).toString());
+        List<ImportDetail> ImportList = importDao.getById(id);
+        List<ImportDetail> ob = (List<ImportDetail>) (Object) ImportList;
+
+        tableModelImportDetail.setRowCount(0);
+        ob.forEach((Object) -> {
+
+            tableModelImportDetail.addRow(new Object[]{Object.getId(), Object.getImportId(), Object.getProductId(), Object.getQuantity(),
+                Object.getQuantityImport(), Object.getPriceImport(), Object.getMsg(), Object.getExp(), Object.getStatus(), Object.getCreate_at()});
+        });
+    }
+
     public void showTbExportDT() throws SQLException {
         int index = tbExport.getSelectedRow();
         int id = Integer.parseInt(tableEModel.getValueAt(index, 0).toString());
@@ -2648,6 +2710,7 @@ public class Home extends javax.swing.JFrame {
         return sb.toString();
     }
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel IPId;
     private javax.swing.JButton btnAdd;
     private javax.swing.JButton btnAddP;
     private javax.swing.JButton btnAddP2;
@@ -2659,9 +2722,8 @@ public class Home extends javax.swing.JFrame {
     private com.toedter.calendar.JDateChooser dateStaff;
     private com.toedter.calendar.JDateChooser dateStaff1;
     private com.toedter.calendar.JDateChooser dateStaff2;
+    private com.toedter.calendar.JDateChooser expIP;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
     private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton15;
     private javax.swing.JButton jButton17;
@@ -2695,10 +2757,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
     private javax.swing.JLabel jLabel27;
-    private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel30;
-    private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
@@ -2773,24 +2832,19 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator8;
     private javax.swing.JSeparator jSeparator9;
     private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable5;
-    private javax.swing.JTable jTable6;
-    private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField16;
-    private javax.swing.JTextField jTextField17;
-    private javax.swing.JTextField jTextField27;
-    private javax.swing.JTextField jTextField28;
-    private javax.swing.JTextField jTextField29;
     private javax.swing.JLabel lbCategoryId;
     private javax.swing.JLabel lbId;
     private javax.swing.JLabel lbStaffId;
     private javax.swing.JLabel lbStaffName;
+    private com.toedter.calendar.JDateChooser msgIP;
     private javax.swing.JButton searchPIn;
     private javax.swing.JTable tbCategory;
     private javax.swing.JTable tbExport;
     private javax.swing.JTable tbExport1;
     private javax.swing.JTable tbExportDetail;
     private javax.swing.JTable tbExportDetail1;
+    private javax.swing.JTable tbImport;
+    private javax.swing.JTable tbImportDt;
     private javax.swing.JTable tbProduct;
     private javax.swing.JTable tbSearchProduct;
     private javax.swing.JTable tbSearchProduct2;
@@ -2813,6 +2867,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JTextField txtPhone;
     private javax.swing.JTextField txtPrice;
     private javax.swing.JTextField txtProductName;
+    private javax.swing.JTextField txtQtyIP;
     private javax.swing.JLabel txtQuantity;
     private javax.swing.JLabel txtQuantityW;
     private javax.swing.JLabel txtQuantityW2;
@@ -2824,5 +2879,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JTextField txtStaffName;
     private javax.swing.JTextField txtTotal;
     private javax.swing.JTextField txtTotal2;
+    private javax.swing.JButton updateIP;
     // End of variables declaration//GEN-END:variables
 }
