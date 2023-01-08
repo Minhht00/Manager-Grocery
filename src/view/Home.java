@@ -11,6 +11,7 @@ import dao.ImportDao;
 import dao.ImportDetailDao;
 import dao.ProductDao;
 import dao.StaffDao;
+import dao.StatisticalDao;
 import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -48,7 +49,9 @@ public class Home extends javax.swing.JFrame {
     DefaultTableModel tableModelStaff;
     DefaultTableModel tableModelImport;
     DefaultTableModel tableModelImportDetail;
-
+    DefaultTableModel tableModelStat;
+    DefaultTableModel tableModelStatProduct;
+    
     ProductDao productDao = new ProductDao();
     ExportDao exportDao = new ExportDao();
     ImportDao importDao = new ImportDao();
@@ -77,6 +80,8 @@ public class Home extends javax.swing.JFrame {
         tablePI2Model = (DefaultTableModel) tbShowP2.getModel();
         tableModelImport = (DefaultTableModel) tbImport.getModel();
         tableModelImportDetail = (DefaultTableModel) tbImportDt.getModel();
+        tableModelStat = (DefaultTableModel) tbStat.getModel();
+        tableModelStatProduct = (DefaultTableModel) tbStatProduct.getModel();
         Account account = Account.getInstance(0, "");
         lbStaffName.setText(account.staffName);
         try {
@@ -392,15 +397,15 @@ public class Home extends javax.swing.JFrame {
         jLabel50 = new javax.swing.JLabel();
         jPanel18 = new javax.swing.JPanel();
         jScrollPane11 = new javax.swing.JScrollPane();
-        tbExportDetail1 = new javax.swing.JTable();
+        tbStatProduct = new javax.swing.JTable();
         jScrollPane12 = new javax.swing.JScrollPane();
-        tbExport1 = new javax.swing.JTable();
+        tbStat = new javax.swing.JTable();
         jLabel51 = new javax.swing.JLabel();
         jLabel52 = new javax.swing.JLabel();
-        dateStaff1 = new com.toedter.calendar.JDateChooser();
+        dateForm = new com.toedter.calendar.JDateChooser();
         jLabel11 = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        dateStaff2 = new com.toedter.calendar.JDateChooser();
+        dateTo = new com.toedter.calendar.JDateChooser();
         jButton4 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
 
@@ -1857,7 +1862,7 @@ public class Home extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("Quản lý hóa đơn", jPanel11);
 
-        tbExportDetail1.setModel(new javax.swing.table.DefaultTableModel(
+        tbStatProduct.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -1873,9 +1878,9 @@ public class Home extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jScrollPane11.setViewportView(tbExportDetail1);
+        jScrollPane11.setViewportView(tbStatProduct);
 
-        tbExport1.setModel(new javax.swing.table.DefaultTableModel(
+        tbStat.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -1891,12 +1896,12 @@ public class Home extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        tbExport1.addMouseListener(new java.awt.event.MouseAdapter() {
+        tbStat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                tbExport1MouseClicked(evt);
+                tbStatMouseClicked(evt);
             }
         });
-        jScrollPane12.setViewportView(tbExport1);
+        jScrollPane12.setViewportView(tbStat);
 
         jLabel51.setForeground(new java.awt.Color(255, 51, 51));
         jLabel51.setText("Sản phẩm bán chạy");
@@ -1904,13 +1909,13 @@ public class Home extends javax.swing.JFrame {
         jLabel52.setForeground(new java.awt.Color(255, 0, 51));
         jLabel52.setText("Bảng thống kê");
 
-        dateStaff1.setDateFormatString("dd-MM-yyyy");
+        dateForm.setDateFormatString("dd-MM-yyyy");
 
         jLabel11.setText("Từ ngày");
 
         jLabel12.setText("Đến ngày");
 
-        dateStaff2.setDateFormatString("dd-MM-yyyy");
+        dateTo.setDateFormatString("dd-MM-yyyy");
 
         jButton4.setText("Tra cứu");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -1934,11 +1939,11 @@ public class Home extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel11)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(dateStaff1, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dateForm, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel12)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(dateStaff2, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(dateTo, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(32, 32, 32)
                 .addComponent(jButton4)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -1979,9 +1984,9 @@ public class Home extends javax.swing.JFrame {
                             .addGroup(jPanel18Layout.createSequentialGroup()
                                 .addGap(31, 31, 31)
                                 .addGroup(jPanel18Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(dateStaff1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(dateForm, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(jLabel12)
-                                    .addComponent(dateStaff2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(dateTo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
@@ -2574,16 +2579,69 @@ public class Home extends javax.swing.JFrame {
         this.txtAmount.setText(amount);
     }//GEN-LAST:event_tbProductMouseClicked
 
-    private void tbExport1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbExport1MouseClicked
+    private void tbStatMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbStatMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_tbExport1MouseClicked
+    }//GEN-LAST:event_tbStatMouseClicked
+public void showStat() throws SQLException {
+        final String OLD_FORMAT = "dd-MM-yyyy";
+        final String NEW_FORMAT = "yyyy-MM-dd";
 
+        SimpleDateFormat sdf1 = new SimpleDateFormat(OLD_FORMAT);
+        sdf1.applyPattern(NEW_FORMAT);
+        String dateForm = sdf1.format(this.dateForm.getDate());
+        
+        SimpleDateFormat sdf2 = new SimpleDateFormat(OLD_FORMAT);
+        sdf2.applyPattern(NEW_FORMAT);
+        String dateTo = sdf2.format(this.dateTo.getDate());
+        
+        StatisticalDao s = new StatisticalDao();
+        List<Export> exportList = s.getStat(dateForm, dateTo);
+
+        tableModelStat.setRowCount(0);
+        exportList.forEach((Object) -> {
+            tableModelStat.addRow(new Object[]{Object.getCreate_at(), Object.getPrice_export()});
+        });
+      
+    }
+public void showStatProduct() throws SQLException {
+        final String OLD_FORMAT = "dd-MM-yyyy";
+        final String NEW_FORMAT = "yyyy-MM-dd";
+
+        SimpleDateFormat sdf1 = new SimpleDateFormat(OLD_FORMAT);
+        sdf1.applyPattern(NEW_FORMAT);
+        String dateForm = sdf1.format(this.dateForm.getDate());
+        
+        SimpleDateFormat sdf2 = new SimpleDateFormat(OLD_FORMAT);
+        sdf2.applyPattern(NEW_FORMAT);
+        String dateTo = sdf2.format(this.dateTo.getDate());
+        
+        StatisticalDao s = new StatisticalDao();
+        List<Product> productStatList = s.getStatProduct(dateForm, dateTo);
+
+        tableModelStatProduct.setRowCount(0);
+        productStatList.forEach((Object) -> {
+            tableModelStatProduct.addRow(new Object[]{Object.getId(), Object.getProductName(),Object.getAmount()});
+        });
+      
+    }
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            
+            showStat();
+            showStatProduct();
+            
+//        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+//        String date = sdf.format(dateStaff.getDate());
+//        Staff staff = new Staff(txtStaffName.getText(), date, txtAddressStaff.getText(), txtPhone.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
         // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton8ActionPerformed
 
     private void tbImportMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tbImportMouseClicked
@@ -2616,14 +2674,14 @@ public class Home extends javax.swing.JFrame {
         SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
         String msg = sdf.format(msgIP.getDate());
         String exp = sdf.format(expIP.getDate());
-        ImportDetail importDt = new ImportDetail(id,msg,exp,1);
+        ImportDetail importDt = new ImportDetail(id, msg, exp, 1);
 
         try {
             importDtDao.update(importDt);
         } catch (SQLException ex) {
             Logger.getLogger(Home.class.getName()).log(Level.SEVERE, null, ex);
         }
-        
+
         try {
             showTbImportDT();
         } catch (SQLException ex) {
@@ -2719,9 +2777,9 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton btnPay;
     private javax.swing.JButton btnPay2;
     private javax.swing.JButton btnReset;
+    private com.toedter.calendar.JDateChooser dateForm;
     private com.toedter.calendar.JDateChooser dateStaff;
-    private com.toedter.calendar.JDateChooser dateStaff1;
-    private com.toedter.calendar.JDateChooser dateStaff2;
+    private com.toedter.calendar.JDateChooser dateTo;
     private com.toedter.calendar.JDateChooser expIP;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton13;
@@ -2840,9 +2898,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton searchPIn;
     private javax.swing.JTable tbCategory;
     private javax.swing.JTable tbExport;
-    private javax.swing.JTable tbExport1;
     private javax.swing.JTable tbExportDetail;
-    private javax.swing.JTable tbExportDetail1;
     private javax.swing.JTable tbImport;
     private javax.swing.JTable tbImportDt;
     private javax.swing.JTable tbProduct;
@@ -2851,6 +2907,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JTable tbShowP;
     private javax.swing.JTable tbShowP2;
     private javax.swing.JTable tbStaff;
+    private javax.swing.JTable tbStat;
+    private javax.swing.JTable tbStatProduct;
     private javax.swing.JTextField txtAddressStaff;
     private javax.swing.JTextField txtAmount;
     private javax.swing.JTextField txtCategoryName;

@@ -32,6 +32,11 @@ public class Export {
         this.create_at = create_at;
     }
 
+    public Export(String create_at, int price_export) {
+        this.price_export = price_export;
+        this.create_at = create_at;
+    }
+
     public int getId() {
         return id;
     }

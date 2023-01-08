@@ -51,6 +51,12 @@ public class Product {
         this.price = price;
         this.amount = amount;
     }
+
+    public Product(int id, String productName, int amount) {
+        this.id = id;
+        this.productName = productName;
+        this.amount = amount;
+    }
      
 
 
