@@ -2463,11 +2463,11 @@
                       <EmptySpace max="32767" attributes="0"/>
                       <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="dateStaff1" min="-2" pref="193" max="-2" attributes="0"/>
+                      <Component id="dateForm" min="-2" pref="193" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
-                      <Component id="dateStaff2" min="-2" pref="193" max="-2" attributes="0"/>
+                      <Component id="dateTo" min="-2" pref="193" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="32" max="-2" attributes="0"/>
                       <Component id="jButton4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -2519,9 +2519,9 @@
                                   <Group type="102" attributes="0">
                                       <EmptySpace min="31" pref="31" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="dateStaff1" min="-2" max="-2" attributes="0"/>
+                                          <Component id="dateForm" min="-2" max="-2" attributes="0"/>
                                           <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                                          <Component id="dateStaff2" min="-2" max="-2" attributes="0"/>
+                                          <Component id="dateTo" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                               </Group>
@@ -2546,7 +2546,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="tbExportDetail1">
+                <Component class="javax.swing.JTable" name="tbStatProduct">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="3" rowCount="0">
@@ -2588,7 +2588,7 @@
 
               <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
               <SubComponents>
-                <Component class="javax.swing.JTable" name="tbExport1">
+                <Component class="javax.swing.JTable" name="tbStat">
                   <Properties>
                     <Property name="model" type="javax.swing.table.TableModel" editor="org.netbeans.modules.form.editors2.TableModelEditor">
                       <Table columnCount="2" rowCount="0">
@@ -2615,7 +2615,7 @@
                     </Property>
                   </Properties>
                   <Events>
-                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tbExport1MouseClicked"/>
+                    <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="tbStatMouseClicked"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -2636,7 +2636,7 @@
                 <Property name="text" type="java.lang.String" value="B&#x1ea3;ng th&#x1ed1;ng k&#xea;"/>
               </Properties>
             </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="dateStaff1">
+            <Component class="com.toedter.calendar.JDateChooser" name="dateForm">
               <Properties>
                 <Property name="dateFormatString" type="java.lang.String" value="dd-MM-yyyy"/>
               </Properties>
@@ -2651,7 +2651,7 @@
                 <Property name="text" type="java.lang.String" value="&#x110;&#x1ebf;n ng&#xe0;y"/>
               </Properties>
             </Component>
-            <Component class="com.toedter.calendar.JDateChooser" name="dateStaff2">
+            <Component class="com.toedter.calendar.JDateChooser" name="dateTo">
               <Properties>
                 <Property name="dateFormatString" type="java.lang.String" value="dd-MM-yyyy"/>
               </Properties>
