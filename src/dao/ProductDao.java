@@ -140,4 +140,20 @@ public class ProductDao implements DaoInterface {
         return productList;
 
     }
+    
+       public List<Product> getId() throws SQLException {
+
+        List<Product> productList = new ArrayList<>();
+        String query = "SELECT id FROM products ";
+
+        Connection conn = ConnectHelper.getConnection();
+        PreparedStatement pstmt = conn.prepareStatement(query);
+        ResultSet rs = pstmt.executeQuery(query);
+        while (rs.next()) {
+            Product product = new Product(rs.getInt("id"));
+            productList.add(product);
+        }
+        return productList;
+
+    }
 }

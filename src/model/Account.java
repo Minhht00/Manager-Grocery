@@ -4,6 +4,11 @@
  */
 package model;
 
+import connect.ConnectHelper;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 /**
  *
  * @author lexuanmuoi
@@ -22,10 +27,12 @@ public final class Account {
     private static Account instance;
     public String staffName;
     public int staffId;
+    public int position;
 //    public String password;
 
+
 //    private Account(String username, String password) {
-        private Account(int staffId, String staffName) {
+        private Account(int staffId, String staffName, int position) {
 
         // The following code emulates slow initialization.
         try {
@@ -35,12 +42,13 @@ public final class Account {
         }
         this.staffName = staffName;
         this.staffId = staffId;
+        this.position = position;
 //        this.password = password;
     }
 
-    public static Account getInstance(int staffId,String staffName) {
+    public static Account getInstance(int staffId,String staffName,int position) {
         if (instance == null) {
-            instance = new Account(staffId, staffName);
+            instance = new Account(staffId, staffName, position);
         }
         return instance;
     }

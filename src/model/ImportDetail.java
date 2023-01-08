@@ -23,10 +23,19 @@ public class ImportDetail {
     public ImportDetail() {
     }
     
-    public ImportDetail(int id, String msg, String exp, int status) {
+    public ImportDetail(int id, int quantityImport, String msg, String exp, int status) {
         this.id = id;
+        this.quantityImport = quantityImport;  
         this.msg = msg;
         this.exp = exp;
+        this.status = status;
+    }
+    
+    public ImportDetail(int importId, int productId, int quantity, int priceImport, int status) {
+        this.importId = importId;  
+        this.productId = productId;
+        this.quantity = quantity;
+        this.priceImport = priceImport;
         this.status = status;
     }
 

@@ -39,15 +39,14 @@ public class ImportDao implements DaoInterface {
 
     @Override
     public boolean insert(Object ob) throws SQLException {
-//        Export export = new Export();
-//        export = (Export) ob;
-//        String query = "insert into export(price_export, staff_id) values(?,?)";
-//        Connection connection = ConnectHelper.getConnection();
-//        PreparedStatement pstmt = connection.prepareStatement(query);
-//        pstmt.setInt(1, export.getPrice_export());
-//        pstmt.setInt(2, export.getStaffId());
-
-        return true;
+        Import import2 = new Import();
+        import2 = (Import) ob;
+        String query = "insert into import(price_import, staff_id) values(?,?)";
+        Connection connection = ConnectHelper.getConnection();
+        PreparedStatement pstmt = connection.prepareStatement(query);
+        pstmt.setInt(1, import2.getPrice_import());
+        pstmt.setInt(2, import2.getStaffId());
+        return pstmt.execute();
     }
 
     @Override

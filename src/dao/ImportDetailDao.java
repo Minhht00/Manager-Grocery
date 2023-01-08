@@ -40,28 +40,31 @@ public class ImportDetailDao implements DaoInterface {
 
     @Override
     public boolean insert(Object ob) throws SQLException {
-//        Export export = new Export();
-//        export = (Export) ob;
-//        String query = "insert into export(price_export, staff_id) values(?,?)";
-//        Connection connection = ConnectHelper.getConnection();
-//        PreparedStatement pstmt = connection.prepareStatement(query);
-//        pstmt.setInt(1, export.getPrice_export());
-//        pstmt.setInt(2, export.getStaffId());
-
-        return true;
+        ImportDetail importDt = new ImportDetail();
+        importDt = (ImportDetail) ob;
+        String query = "insert into import_detail(import_id,product_id,quantity,price_import,status) values(?,?,?,?,?)";
+        Connection connection = ConnectHelper.getConnection();
+        PreparedStatement pstmt = connection.prepareStatement(query);
+        pstmt.setInt(1, importDt.getImportId());
+        pstmt.setInt(2, importDt.getProductId());
+        pstmt.setInt(3, importDt.getQuantity());
+        pstmt.setInt(4, importDt.getPriceImport());
+        pstmt.setInt(5, importDt.getStatus());
+        return pstmt.execute();
     }
 
     @Override
     public boolean update(Object ob) throws SQLException {
         ImportDetail importDt = (ImportDetail) ob;
 
-        String query = "UPDATE import_detail SET msg=?, exp=?, status=? "
+        String query = "UPDATE import_detail SET quantity_import=?, msg=?, exp=?, status=? "
                 + "WHERE id='" + importDt.getId() + "'";
         Connection conn = ConnectHelper.getConnection();
         PreparedStatement pstmt = conn.prepareStatement(query);
-        pstmt.setString(1,importDt.getMsg());
-        pstmt.setString(2, importDt.getExp());
-        pstmt.setInt(3, importDt.getStatus());
+        pstmt.setInt(1,importDt.getQuantityImport());
+        pstmt.setString(2,importDt.getMsg());
+        pstmt.setString(3, importDt.getExp());
+        pstmt.setInt(4, importDt.getStatus());
 
         return pstmt.execute();
     }

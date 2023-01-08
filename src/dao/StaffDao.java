@@ -42,16 +42,29 @@ public class StaffDao implements DaoInterface {
     public boolean insert(Object ob) throws SQLException {
         Staff staff = new Staff();
         staff = (Staff) ob;
-        String query = "insert into staff(staff_name,birthday,address,phone) values(?,?,?,?)";
+        String query = "insert into staff(staff_name,birthday,address,phone,position) values(?,?,?,?,?)";
         Connection connection = ConnectHelper.getConnection();
         PreparedStatement pstmt = connection.prepareStatement(query);
         pstmt.setString(1, staff.getStaffName());
         pstmt.setString(2, staff.getBirthDay());
         pstmt.setString(3, staff.getAddress());
         pstmt.setString(4, staff.getPhone());
+        pstmt.setInt(5, staff.getPosition());
         return pstmt.execute();
     }
 //
+
+    public boolean insertAcc(Object ob) throws SQLException {
+        Staff staff = new Staff();
+        staff = (Staff) ob;
+        String query = "insert into account(username,password,staff_id) values(?,?,?)";
+        Connection connection = ConnectHelper.getConnection();
+        PreparedStatement pstmt = connection.prepareStatement(query);
+        pstmt.setString(1, staff.getAccount());
+        pstmt.setString(2, staff.getPass());
+        pstmt.setInt(3, staff.getId());
+        return pstmt.execute();
+    }
 
     @Override
     public boolean update(Object ob) throws SQLException {
@@ -69,7 +82,6 @@ public class StaffDao implements DaoInterface {
 
         return pstmt.execute();
     }
-
 
     @Override
     public boolean delete(Object ob) throws SQLException {

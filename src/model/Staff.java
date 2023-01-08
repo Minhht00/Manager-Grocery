@@ -14,10 +14,19 @@ public class Staff {
     private String staffName;
     private String phone;
     private String address;
+    private int position;
     private String creatAt;
     private String birthDay;
+    private String account;
+    private String pass;
 
     public Staff() {
+    }
+    
+    public Staff(String account, String pass, int id) {
+        this.account = account;
+        this.pass = pass;
+        this.id = id;
     }
 
     public Staff(int id, String staffName, String birthDay, String address, String creatAt, String phone) {
@@ -43,6 +52,14 @@ public class Staff {
         this.address = address;
         this.birthDay = birthDay;
     }
+    
+    public Staff(String staffName, String birthDay, String address, String phone, int position) {
+        this.staffName = staffName;
+        this.phone = phone;
+        this.address = address;
+        this.birthDay = birthDay;
+        this.position = position;
+    }
 
     public int getId() {
         return id;
@@ -50,6 +67,22 @@ public class Staff {
 
     public void setId(int id) {
         this.id = id;
+    }
+
+    public String getAccount() {
+        return account;
+    }
+
+    public void setAccount(String account) {
+        this.account = account;
+    }
+
+    public String getPass() {
+        return pass;
+    }
+
+    public void setPass(String pass) {
+        this.pass = pass;
     }
 
     public String getStaffName() {
@@ -74,6 +107,14 @@ public class Staff {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public int getPosition() {
+        return position;
+    }
+
+    public void setPosition(int position) {
+        this.position = position;
     }
 
     public String getCreatAt() {

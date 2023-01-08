@@ -78,6 +78,26 @@ public class ExportDao implements DaoInterface {
         return pstmt.execute();
     }
     
+    public List<Export> search(String id) throws SQLException {
+
+        List<Export> exportListSearch = new ArrayList<>();
+
+        String query = "SELECT * FROM export "
+                + "WHERE id='" + id +"'";
+
+        Connection conn = ConnectHelper.getConnection();
+        PreparedStatement pstmt = conn.prepareStatement(query);
+        ResultSet rs = pstmt.executeQuery(query);
+        while (rs.next()) {
+//
+            Export export = new Export(rs.getInt("id"), rs.getInt("price_export"),
+                    rs.getString("create_at"));
+            exportListSearch.add(export);
+        }
+        return exportListSearch;
+
+    }
+    
     public List<ExportDetail> getById(int id) throws SQLException {
        
         List<ExportDetail> exportDtList = new ArrayList<>();   

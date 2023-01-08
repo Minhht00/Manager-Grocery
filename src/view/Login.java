@@ -8,6 +8,7 @@ import dao.LoginDao;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import model.Account;
 
 /**
@@ -149,6 +150,8 @@ public class Login extends javax.swing.JFrame {
             this.dispose();
             Home home = new Home();
             home.setVisible(true);
+            } else {
+            JOptionPane.showMessageDialog(rootPane, "Tai khoan hoac mat khau sai!");
             }
             
 //            Account account =Account.getInstance(username);
