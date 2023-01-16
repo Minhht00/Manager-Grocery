@@ -70,17 +70,13 @@ public class ProductDao implements DaoInterface {
         return pstmt.execute();
     }
     
-    public boolean updateQ(Object ob) throws SQLException {
-        Product product = (Product) ob;
-        product = (Product) ob;
+    public boolean updateQ(int amount, int id) throws SQLException {
 //        String query = "UPDATE products SET name=?,catalog_id=?, price=? "
 //                + "WHERE id='" + fd.getId() + "'";
-        String query = "UPDATE products SET amount=? "
-                + "WHERE id='" + product.getId() + "'";
+        String query = "UPDATE products SET amount='" + amount + "'"
+                + "WHERE id='" + id + "'";
         Connection conn = ConnectHelper.getConnection();
         PreparedStatement pstmt = conn.prepareStatement(query);
-        pstmt.setInt(1, product.getAmount());
-
         return pstmt.execute();
     }
 
@@ -119,9 +115,8 @@ public class ProductDao implements DaoInterface {
 
     }
 
-    public List<Product> getQuantityById(int id) throws SQLException {
+    public int getQuantityById(int id) throws SQLException {
 
-        List<Product> productList = new ArrayList<>();
 
 //        String query = "SELECT * FROM products where product_name LIKE '%"+name+"%'";
         String query = "SELECT amount FROM products "
@@ -130,14 +125,12 @@ public class ProductDao implements DaoInterface {
         Connection conn = ConnectHelper.getConnection();
         PreparedStatement pstmt = conn.prepareStatement(query);
         ResultSet rs = pstmt.executeQuery(query);
+        int qty = 0;
         while (rs.next()) {
-//            Product product = new Product(rs.getInt("id"), rs.getString("product_name"),
-//                    rs.getInt("catalog_id"), rs.getInt("price")
-//                    , rs.getInt("status"));
-            Product product = new Product(rs.getInt("amount"));
-            productList.add(product);
+            qty = rs.getInt("amount"); 
         }
-        return productList;
+        
+        return qty;
 
     }
     
